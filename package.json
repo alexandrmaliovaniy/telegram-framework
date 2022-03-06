@@ -1,0 +1,19 @@
+{
+  "name": "telegram-framework",
+  "version": "1.0.0",
+  "description": "Allows yo to build scalable telegram bots with NODE.JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandrmaliovaniy/telegram-framework.git"
+  },
+  "author": "Alexandr Maliovaniy <alexandrmaliovaniy@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandrmaliovaniy/telegram-framework/issues"
+  },
+  "homepage": "https://github.com/alexandrmaliovaniy/telegram-framework#readme"
+}
