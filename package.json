@@ -1,7 +1,7 @@
 {
   "name": "telegram-framework",
   "version": "1.0.0",
-  "description": "Allows yo to build scalable telegram bots with NODE.JS",
+  "description": "Allows you to build scalable telegram bots with NODE.JS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
