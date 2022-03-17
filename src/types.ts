@@ -5,6 +5,11 @@ export interface IStorageAPI {
   Get(id: string | number): Promise<IUser> | Promise<null>;
 }
 
+export interface IKeyboard {
+  has(button: Array<any>): boolean;
+  build(): TelegramBot.SendMessageOptions;
+}
+
 export interface IRoute {
   path: Array<string>;
   middleware: Array<IEventCallback>;
@@ -13,7 +18,11 @@ export interface IRoute {
 export interface IRouter extends Array<IRoute> {
   routerMiddleware: Array<IEventCallback>;
   use(path: string, router: IRouter): void;
-  on(path: string, callback: IEventCallback, ...middleware: Array<IEventCallback>): void;
+  on(
+    path: string,
+    callback: IEventCallback,
+    ...middleware: Array<IEventCallback>
+  ): void;
   useMiddleware(...middleware: Array<IEventCallback>): void;
 }
 
@@ -22,7 +31,11 @@ export interface IBot {
   storageInstance: IStorageAPI;
   router: IRouter;
   use(path: string, router: IRouter): void;
-  on(path: string, callback: IEventCallback, ...middleware: Array<IEventCallback>): void;
+  on(
+    path: string,
+    callback: IEventCallback,
+    ...middleware: Array<IEventCallback>
+  ): void;
   useMiddleware(...middleware: Array<IEventCallback>): void;
 }
 
@@ -35,11 +48,13 @@ export interface IUser {
 }
 
 export interface IRequest {
-  user: IUser,
-  message: TelegramBot.Message,
+  user: IUser;
+  message: TelegramBot.Message;
   body: {
     [key: string]: any;
-  }
+  };
+  match(...cases: Array<string | Array<string> | Function>);
+  [key: string]: any;
 }
 
 export interface IResponse {
@@ -49,7 +64,7 @@ export interface IResponse {
   redirect(path: string);
   push(path: string);
   pushBack();
-
+  [key: string]: any;
 }
 
 export interface IEventCallback {
